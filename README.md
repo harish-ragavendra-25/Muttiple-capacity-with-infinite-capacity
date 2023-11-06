@@ -13,17 +13,38 @@ Queuing are the most frequently encountered problems in everyday life. For examp
 ## Procedure :
 
 ![image](https://user-images.githubusercontent.com/103921593/203238265-176740b0-eae2-4772-90be-5449869ac9b0.png)
-
-
-
-
 ## Experiment:
-
+![Screenshot 2023-11-06 154428](https://github.com/harish-ragavendra-25/Muttiple-capacity-with-infinite-capacity/assets/114852180/9c232a7d-12ae-4aea-89d9-12e0d24f780e)
+![Screenshot 2023-11-06 154458](https://github.com/harish-ragavendra-25/Muttiple-capacity-with-infinite-capacity/assets/114852180/292b71d1-8cb0-4573-8ad7-4592fab18e49)
 
 ## Program
-
-
+```
+arr_time=float(input("Enter the mean inter arrival time of objects from Feeder (in secs): "))
+ser_time=float(input("Enter the mean  inter service time of Lathe Machine (in secs) :  "))
+Robot_time=float(input("Enter the Additional time taken for the Robot (in secs) :  "))
+lam=1/arr_time
+mu=1/(ser_time+Robot_time)
+print("--------------------------------------------------------------")
+print("Single Server with Infinite Capacity - (M/M/1):(oo/FIFO)")
+print("--------------------------------------------------------------")
+print("The mean arrival rate per second : %0.2f "%lam)
+print("The mean service rate per second : %0.2f "%mu)
+if (lam <  mu):
+    Ls=lam/(mu-lam)
+    Lq=Ls-lam/mu
+    Ws=Ls/lam
+    Wq=Lq/lam
+    print("Average number of objects in the system : %0.2f "%Ls)
+    print("Average number of objects in the conveyor :  %0.2f "%Lq)
+    print("Average waiting time of an object in the system : %0.2f secs"%Ws)
+    print("Average waiting time of an object in the conveyor : %0.2f secs"%Wq)
+    print("Probability that the system is busy : %0.2f "%(lam/mu) )
+    print("Probability that the system is empty : %0.2f "%(1-lam/mu) )
+else:
+    print("Warning! Objects Over flow will happen in the conveyor")
+print("---------------------------------------------------------------")
+```
 ## Output :
-
+![Screenshot 2023-11-06 154323](https://github.com/harish-ragavendra-25/Muttiple-capacity-with-infinite-capacity/assets/114852180/f5f4d774-5e3d-43da-97ff-c735b91c647c)
 ## Result : 
-
+The average number of material in the sysytem and in the conveyor and waiting time are successfully found.
